@@ -24,7 +24,7 @@ const initialState: EntitiesState = {
 };
 
 export const entitiesReducer = reducerWithInitialState(initialState)
-  .case(entitiesActions.sampleAction, (state: EntitiesState, payload: any): EntitiesState => ({
+  .case(entitiesActions.updateTweets, (state: EntitiesState, payload: EntitiesState["tweets"]): EntitiesState => ({
     ...state,
     tweets: payload,
   }));
