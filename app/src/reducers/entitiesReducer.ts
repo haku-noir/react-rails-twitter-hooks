@@ -1,16 +1,30 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { entitiesActions } from 'actions/entitiesActions';
 
+export type TweetState = {
+  id: number,
+  content: string
+};
+
 export type EntitiesState = {
-  sample: any
+  tweets: TweetState[]
 };
 
 const initialState: EntitiesState = {
-  sample: Object,
+  tweets: [
+    {
+      id: 1,
+      content: "Hello"
+    },
+    {
+      id: 2,
+      content: "World"
+    },
+  ],
 };
 
 export const entitiesReducer = reducerWithInitialState(initialState)
   .case(entitiesActions.sampleAction, (state: EntitiesState, payload: any): EntitiesState => ({
     ...state,
-    sample: payload,
+    tweets: payload,
   }));
