@@ -6,6 +6,7 @@ import { History, createBrowserHistory } from 'history';
 import { createStore } from 'store';
 import { Switch, Route } from 'react-router';
 import { TweetList } from 'containers/TweetListCTR';
+import { TweetsAPI } from 'api/TweetsAPI';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -17,6 +18,7 @@ ReactDOM.render(
          <Route exact path={'/'} component={TweetList}/>
        </Switch>
     </ConnectedRouter>
+    <TweetsAPI />
   </Provider>,
   document.getElementById('root'),
 );
