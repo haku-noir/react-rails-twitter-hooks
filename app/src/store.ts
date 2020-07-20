@@ -5,16 +5,19 @@ import { connectRouter, routerMiddleware, RouterState } from 'connected-react-ro
 import { History } from 'history';
 import logger from 'redux-logger';
 import { EntitiesState, entitiesReducer } from 'reducers/entitiesReducer';
+import { TweetsAPIState, tweetsAPIReducer } from 'reducers/tweetsAPIReducer';
 
 export type RootState = {
   router: RouterState,
-  entires: EntitiesState
+  entires: EntitiesState,
+  tweetsAPI: TweetsAPIState
 };
 
 export const createStore = (history: History) => {
   const rootReducer = combineReducers<RootState>({
     router: connectRouter(history),
-    entires: entitiesReducer
+    entires: entitiesReducer,
+    tweetsAPI: tweetsAPIReducer
   });
 
   return reduxCreateStore(
