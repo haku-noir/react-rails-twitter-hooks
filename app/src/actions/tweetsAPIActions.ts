@@ -3,5 +3,6 @@ import actionCreatorFactory from 'typescript-fsa';
 const actionCreator = actionCreatorFactory();
 
 export const tweetsAPIActions = {
-  sampleAction: actionCreator<any>('SAMPLE'),
+  updateTweets: actionCreator<void>('API_UPDATE_TWEETS'),
+  updateTweetsDone: actionCreator<void>('API_UPDATE_TWEETS_DONE'),
 };

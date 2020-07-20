@@ -2,15 +2,19 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 
 export type TweetsAPIState = {
-  sample: any
+  update: boolean
 };
 
 const initialState: TweetsAPIState = {
-  sample: Object,
+  update: true,
 };
 
 export const tweetsAPIReducer = reducerWithInitialState(initialState)
-  .case(tweetsAPIActions.sampleAction, (state: TweetsAPIState, payload: any): TweetsAPIState => ({
+  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState): TweetsAPIState => ({
     ...state,
-    sample: payload,
+    update: true,
+  }))
+  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState): TweetsAPIState => ({
+    ...state,
+    update: false,
   }));
