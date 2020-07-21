@@ -7,6 +7,7 @@ import { createStore } from 'store';
 import { Switch, Route } from 'react-router';
 import { TweetList } from 'containers/TweetListCTR';
 import { UpdateTweetsAPI } from 'api/UpdateTweetsAPI';
+import { SendTweetAPI } from 'api/SendTweetAPI';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -19,6 +20,7 @@ ReactDOM.render(
        </Switch>
     </ConnectedRouter>
     <UpdateTweetsAPI />
+    <SendTweetAPI />
   </Provider>,
   document.getElementById('root'),
 );
