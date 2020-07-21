@@ -6,7 +6,7 @@ import { fetchTweets } from 'clients/tweetsAPI';
 import { entitiesActions } from 'actions/entitiesActions';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 
-export const TweetsAPI: React.FC<{}> = () => {
+export const UpdateTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const update = useSelector<RootState, boolean>(state => state.tweetsAPI.update);
