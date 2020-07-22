@@ -5,9 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { History, createBrowserHistory } from 'history';
 import { createStore } from 'store';
 import { Switch, Route } from 'react-router';
-import { TweetList } from 'containers/TweetListCTR';
-import { UpdateTweetsAPI } from 'api/UpdateTweetsAPI';
-import { SendTweetAPI } from 'api/SendTweetAPI';
+import { TweetPanel } from 'components/TweetPanel';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -16,11 +14,9 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
        <Switch>
-         <Route exact path={'/'} component={TweetList}/>
+         <Route exact path={'/'} component={TweetPanel}/>
        </Switch>
     </ConnectedRouter>
-    <UpdateTweetsAPI />
-    <SendTweetAPI />
   </Provider>,
   document.getElementById('root'),
 );
