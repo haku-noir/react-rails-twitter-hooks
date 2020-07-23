@@ -2,15 +2,15 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { tweetsActions } from 'actions/tweetsActions';
 
 export type TweetsState = {
-  sample: any
+  home: number[]
 };
 
 const initialState: TweetsState = {
-  sample: Object,
+  home: [],
 };
 
 export const tweetsReducer = reducerWithInitialState(initialState)
-  .case(tweetsActions.sampleAction, (state: TweetsState, payload: any): TweetsState => ({
+  .case(tweetsActions.updateHome, (state: TweetsState, payload: number[]): TweetsState => ({
     ...state,
-    sample: payload,
+    home: payload,
   }));
