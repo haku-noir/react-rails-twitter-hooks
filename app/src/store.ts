@@ -6,10 +6,12 @@ import { History } from 'history';
 import logger from 'redux-logger';
 import { EntitiesState, entitiesReducer } from 'reducers/entitiesReducer';
 import { TweetsAPIState, tweetsAPIReducer } from 'reducers/tweetsAPIReducer';
+import { TweetsState, tweetsReducer } from 'reducers/tweetsReducer';
 
 export type RootState = {
   router: RouterState,
   entires: EntitiesState,
+  tweets: TweetsState,
   tweetsAPI: TweetsAPIState
 };
 
@@ -17,6 +19,7 @@ export const createStore = (history: History) => {
   const rootReducer = combineReducers<RootState>({
     router: connectRouter(history),
     entires: entitiesReducer,
+    tweets: tweetsReducer,
     tweetsAPI: tweetsAPIReducer
   });
 
