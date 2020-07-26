@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import { Tweet } from './Tweet';
+import { Tweet } from 'containers/TweetCTR';
 
 type IProps = {
   tweetIds: number[]
