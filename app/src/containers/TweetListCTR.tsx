@@ -3,18 +3,18 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { TweetList as TweetListComp } from 'components/TweetList';
 import { RootState } from 'store';
-import { EntitiesState } from 'reducers/entitiesReducer';
+import { TweetsState } from 'reducers/tweetsReducer';
 
 type IProps = {};
 
 export const TweetList: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const tweets = useSelector<RootState, EntitiesState["tweets"]>(
-    state => state.entires.tweets
+  const tweetIds = useSelector<RootState, TweetsState["home"]>(
+    state => state.tweets.home
   );
 
-  const _props = { tweets }
+  const _props = { tweetIds }
 
   return <TweetListComp {..._props}/>;
 };
