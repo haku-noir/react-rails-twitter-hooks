@@ -10,7 +10,7 @@ import { TweetsState, tweetsReducer } from 'reducers/tweetsReducer';
 
 export type RootState = {
   router: RouterState,
-  entires: EntitiesState,
+  entities: EntitiesState,
   tweets: TweetsState,
   tweetsAPI: TweetsAPIState
 };
@@ -18,7 +18,7 @@ export type RootState = {
 export const createStore = (history: History) => {
   const rootReducer = combineReducers<RootState>({
     router: connectRouter(history),
-    entires: entitiesReducer,
+    entities: entitiesReducer,
     tweets: tweetsReducer,
     tweetsAPI: tweetsAPIReducer
   });

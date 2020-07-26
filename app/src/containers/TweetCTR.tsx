@@ -15,7 +15,7 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const tweet = useSelector<RootState, TweetState>(
-    state => state.entires.tweets[tweetId - 1]
+    state => state.entities.tweets[tweetId - 1]
   );
 
   const _props = {

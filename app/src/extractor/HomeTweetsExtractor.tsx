@@ -13,7 +13,7 @@ const extract = (tweets: EntitiesState["tweets"]): TweetsState["home"] => (
 export const HomeTweetsExtractor: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const tweets = useSelector<RootState, EntitiesState["tweets"]>(state => state.entires.tweets);
+  const tweets = useSelector<RootState, EntitiesState["tweets"]>(state => state.entities.tweets);
 
   React.useEffect(() => {
     const homeTweets = extract(tweets);
