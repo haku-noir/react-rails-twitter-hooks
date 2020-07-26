@@ -11,7 +11,9 @@ type IProps = {};
 export const TweetForm: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const state = useSelector<RootState, RootState>(state => state);
+  const data = useSelector<RootState, RootState>(
+    state => state
+  );
 
   const _props = {
     send: (newTweet: TweetState) => {

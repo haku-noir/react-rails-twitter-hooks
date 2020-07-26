@@ -9,7 +9,9 @@ import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 export const UpdateTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const update = useSelector<RootState, boolean>(state => state.tweetsAPI.update);
+  const update = useSelector<RootState, boolean>(
+    state => state.tweetsAPI.update
+  );
 
   React.useEffect(() => {
     if(!update) return;

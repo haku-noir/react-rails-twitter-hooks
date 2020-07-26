@@ -9,7 +9,9 @@ import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 export const SendTweetAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const newTweet = useSelector<RootState, TweetState>(state => state.tweetsAPI.newTweet);
+  const newTweet = useSelector<RootState, TweetState>(
+    state => state.tweetsAPI.newTweet
+  );
 
   React.useEffect(() => {
     sendTweet(newTweet)
