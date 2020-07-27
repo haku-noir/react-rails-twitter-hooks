@@ -18,7 +18,21 @@ const initialState: TweetsState = {
 };
 
 export const tweetsReducer = reducerWithInitialState(initialState)
-  .case(tweetsActions.updateHome, (state: TweetsState, payload: number[]): TweetsState => ({
+  .case(tweetsActions.updateHome, (state: TweetsState, payload: number[]) => ({
     ...state,
     home: payload,
-  }));
+  }))
+  .case(tweetsActions.updateDetails, (state: TweetsState, payload: number) => ({
+    ...state,
+    details: {
+      id: payload,
+      updating: true
+    },
+  }))
+  .case(tweetsActions.updateDetailsDone, (state: TweetsState) => ({
+    ...state,
+    details: {
+      id: 0,
+      updating: false
+    }
+  }))
