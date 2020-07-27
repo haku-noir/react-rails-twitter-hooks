@@ -28,3 +28,7 @@ export const entitiesReducer = reducerWithInitialState(initialState)
     ...state,
     tweets: payload,
   }));
+
+export const findTweetById = (tweets: TweetState[], id: number): TweetState => (
+  tweets.find((tweet) => tweet.id === id)
+);
