@@ -11,16 +11,7 @@ export type EntitiesState = {
 };
 
 const initialState: EntitiesState = {
-  tweets: [
-    {
-      id: 1,
-      content: "Hello"
-    },
-    {
-      id: 2,
-      content: "World"
-    },
-  ],
+  tweets: [],
 };
 
 export const entitiesReducer = reducerWithInitialState(initialState)

@@ -3,10 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { TweetState } from 'reducers/entitiesReducer';
 
 type IProps = {
-  send: (newTweet: TweetState) => void
+  send: (newContent: string) => void
 };
 
 const useStyles = makeStyles(() => ({
@@ -66,7 +65,7 @@ export const TweetForm: React.FC<IProps> = (props: IProps) => {
       <Grid item xs={2}>
         <Button
           className={classes.button}
-          onClick={() => send({id: 0, content: text}) }
+          onClick={() => send(text) }
         >
         Send
         </Button>
