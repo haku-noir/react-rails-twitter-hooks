@@ -59,13 +59,17 @@ export const TweetForm: React.FC<IProps> = (props: IProps) => {
           className={classes.textfield}
           label="Tweet"
           variant="outlined"
-          onChange={(event) => { updateText(String(event.target.value)); }}
+          value={text}
+          onChange={event => updateText(String(event.target.value))}
         />
       </Grid>
       <Grid item xs={2}>
         <Button
           className={classes.button}
-          onClick={() => send(text) }
+          onClick={() => {
+            send(text);
+            updateText('');
+          }}
         >
         Send
         </Button>
