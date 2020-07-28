@@ -3,18 +3,12 @@ import { tweetsActions } from 'actions/tweetsActions';
 
 export type TweetsState = {
   home: number[],
-  details: {
-    id: number,
-    updating: boolean
-  }
+  details: number
 };
 
 const initialState: TweetsState = {
   home: [],
-  details: {
-    id: 0,
-    updating: false
-  }
+  details: 0
 };
 
 export const tweetsReducer = reducerWithInitialState(initialState)
@@ -24,15 +18,5 @@ export const tweetsReducer = reducerWithInitialState(initialState)
   }))
   .case(tweetsActions.updateDetails, (state: TweetsState, payload: number) => ({
     ...state,
-    details: {
-      id: payload,
-      updating: true
-    },
-  }))
-  .case(tweetsActions.updateDetailsDone, (state: TweetsState) => ({
-    ...state,
-    details: {
-      id: 0,
-      updating: false
-    }
+    details: payload
   }))
