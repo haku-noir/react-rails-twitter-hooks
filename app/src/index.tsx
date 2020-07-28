@@ -6,6 +6,7 @@ import { History, createBrowserHistory } from 'history';
 import { createStore } from 'store';
 import { Switch, Route } from 'react-router';
 import { TweetPanel } from 'components/TweetPanel';
+import { TweetDetails } from 'containers/TweetDetailsCTR';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -15,6 +16,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
        <Switch>
          <Route exact path={'/'} component={TweetPanel}/>
+         <Route exact path={'/details'} component={TweetDetails}/>
        </Switch>
     </ConnectedRouter>
   </Provider>,
