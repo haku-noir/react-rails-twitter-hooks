@@ -12,15 +12,19 @@ const initialState: TweetsAPIState = {
 };
 
 export const tweetsAPIReducer = reducerWithInitialState(initialState)
-  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState): TweetsAPIState => ({
+  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState) => ({
     ...state,
     updating: true,
   }))
-  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState): TweetsAPIState => ({
+  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState) => ({
     ...state,
     updating: false,
   }))
-  .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: string): TweetsAPIState => ({
+  .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: string) => ({
     ...state,
     newContent: payload
+  }))
+  .case(tweetsAPIActions.sendTweetDone, (state: TweetsAPIState) => ({
+    ...state,
+    newContent: ''
   }));
