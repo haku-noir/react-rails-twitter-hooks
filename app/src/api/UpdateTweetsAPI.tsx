@@ -17,13 +17,12 @@ export const UpdateTweetsAPI: React.FC<{}> = () => {
     if(!updating) return;
 
     fetchTweets()
-      .then((res) => res.json())
-      .then((res) => {
-        const tweets = res.tweets;
-
-        if (tweets) {
-          dispatch(entitiesActions.updateTweets(tweets));
-        }
+      .then(res => res.json())
+      .then(res => {
+        if(!res.tweets) return;
+        dispatch(entitiesActions.updateTweets(res.tweets));
+      })
+      .then(() => {
         dispatch(tweetsAPIActions.updateTweetsDone());
       })
       .catch(() => {
