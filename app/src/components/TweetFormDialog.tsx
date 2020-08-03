@@ -9,10 +9,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 type IProps = {
   open: boolean,
   setOpen: (value: React.SetStateAction<boolean>) => void,
+  send: (newContent: string) => void,
 };
 
 export const TweetFormDialog: React.FC<IProps> = (props: IProps) => {
-  const {open, setOpen} = props;
+  const {open, setOpen, send} = props;
+  const [text, updateText] = React.useState('');
 
   const handleClose = () => {
     setOpen(false);
@@ -27,13 +29,20 @@ export const TweetFormDialog: React.FC<IProps> = (props: IProps) => {
           margin="dense"
           label="Tweet"
           fullWidth
+          onChange={event => updateText(String(event.target.value))}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleClose} color="primary">
+        <Button
+          onClick={() => {
+            send(text);
+            handleClose();
+          }}
+          color="primary"
+        >
           Send
         </Button>
       </DialogActions>
