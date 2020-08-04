@@ -1,4 +1,5 @@
 import actionCreatorFactory from 'typescript-fsa';
+import { TweetState } from 'reducers/entitiesReducer';
 
 const actionCreator = actionCreatorFactory();
 
@@ -7,4 +8,6 @@ export const tweetsAPIActions = {
   updateTweetsDone: actionCreator<void>('API_UPDATE_TWEETS_DONE'),
   sendTweet: actionCreator<string>('API_SEND_TWEET'),
   sendTweetDone: actionCreator<void>('API_SEND_TWEET_DONE'),
+  updateTweet: actionCreator<TweetState>('API_UPDATE_TWEET'),
+  updateTweetDone: actionCreator<void>('API_UPDATE_TWEET_DONE'),
 };
