@@ -8,8 +8,10 @@ type IProps = {};
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    margin: {
-      margin: theme.spacing(1),
+    fab: {
+      position: 'fixed',
+      bottom: theme.spacing(2),
+      right: theme.spacing(2),
     },
   }),
 );
@@ -29,7 +31,7 @@ export const TweetSendButton: React.FC<IProps> = (props: IProps) => {
 
   return (
     <div>
-      <Fab color="primary" aria-label="send" className={classes.margin} onClick={handleClickOpen}>
+      <Fab color="primary" aria-label="send" className={classes.fab} onClick={handleClickOpen}>
         <SendIcon />
       </Fab>
       <TweetFormDialog {..._props} />

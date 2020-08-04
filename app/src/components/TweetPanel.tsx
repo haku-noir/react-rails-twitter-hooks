@@ -10,11 +10,12 @@ type IProps = {};
 export const TweetPanel: React.FC<IProps> = (props: IProps) => {
   return (
     <div>
-      <TweetSendButton />
-      <TweetList />
       <UpdateTweetsAPI />
       <SendTweetAPI />
       <HomeTweetsExtractor />
+
+      <TweetList />
+      <TweetSendButton />
     </div>
   );
 };
