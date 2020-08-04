@@ -2,9 +2,11 @@ import * as React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import SendIcon from '@material-ui/icons/Send';
-import { TweetFormDialog } from 'containers/TweetFormDialogCTR';
+import { TextFormDialogParams, TextFormDialog } from './TextFormDialog';
 
-type IProps = {};
+type IProps = {
+  send: (newContent: string) => void,
+};
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,8 +19,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const TweetSendButton: React.FC<IProps> = (props: IProps) => {
+  const { send } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+
+  const params: TextFormDialogParams = {
+    title: 'Send Tweet',
+    label: 'Tweet',
+    buttonName: 'Send',
+    defaultValue: '',
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,6 +37,8 @@ export const TweetSendButton: React.FC<IProps> = (props: IProps) => {
   const _props = {
     open,
     setOpen,
+    handleClick: send,
+    params,
   }
 
   return (
@@ -34,7 +46,7 @@ export const TweetSendButton: React.FC<IProps> = (props: IProps) => {
       <Fab color="primary" aria-label="send" className={classes.fab} onClick={handleClickOpen}>
         <SendIcon />
       </Fab>
-      <TweetFormDialog {..._props} />
+      <TextFormDialog {..._props} />
     </div>
   );
 };

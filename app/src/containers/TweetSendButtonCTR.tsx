@@ -3,6 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { TweetSendButton as TweetSendButtonComp } from 'components/TweetSendButton';
 import { RootState } from 'store';
+import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 
 type IProps = {};
 
@@ -13,7 +14,11 @@ export const TweetSendButton: React.FC<IProps> = (props: IProps) => {
     state => state
   );
 
-  const _props = {}
+  const _props = {
+    send: (newContent: string) => {
+      dispatch(tweetsAPIActions.sendTweet(newContent));
+    }
+  }
 
   return <TweetSendButtonComp {..._props}/>;
 };
