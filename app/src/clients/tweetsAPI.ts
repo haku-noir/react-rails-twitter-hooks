@@ -19,7 +19,7 @@ export const sendTweet = (content: string) => fetch(`${baseURL}/tweets`, {
   body: JSON.stringify({ content }),
 });
 
-export const updateTweet = (tweet: TweetState) => fetch(`${baseURL}/posts/${tweet.id}`, {
+export const updateTweet = (tweet: TweetState) => fetch(`${baseURL}/tweets/${tweet.id}`, {
   method: 'PUT',
   mode: 'cors',
   credentials: 'include',

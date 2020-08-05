@@ -4,6 +4,7 @@ import { UpdateTweetsAPI } from 'api/UpdateTweetsAPI';
 import { SendTweetAPI } from 'api/SendTweetAPI';
 import { HomeTweetsExtractor } from 'extractor/HomeTweetsExtractor';
 import { TweetSendButton } from 'containers/TweetSendButtonCTR';
+import { UpdateTweetAPI } from 'api/UpdateTweetAPI';
 
 type IProps = {};
 
@@ -12,6 +13,7 @@ export const TweetPanel: React.FC<IProps> = (props: IProps) => {
     <div>
       <UpdateTweetsAPI />
       <SendTweetAPI />
+      <UpdateTweetAPI />
       <HomeTweetsExtractor />
 
       <TweetList />

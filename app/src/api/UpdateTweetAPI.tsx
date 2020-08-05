@@ -17,15 +17,15 @@ export const UpdateTweetAPI: React.FC<{}> = () => {
     if(updatedTweet.id === 0) return;
 
     updateTweet(updatedTweet)
-    .then(() => {
-      dispatch(tweetsAPIActions.updateTweets());
-    })
-    .then(() => {
-      dispatch(tweetsAPIActions.updateTweetDone());
-    })
-    .catch(() => {
-      dispatch(tweetsAPIActions.updateTweetDone());
-    });
+      .then(() => {
+        dispatch(tweetsAPIActions.updateTweets());
+      })
+      .then(() => {
+        dispatch(tweetsAPIActions.updateTweetDone());
+      })
+      .catch(() => {
+        dispatch(tweetsAPIActions.updateTweetDone());
+      });
   }, [updatedTweet]);
 
   return null;
