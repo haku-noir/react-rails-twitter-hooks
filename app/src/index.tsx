@@ -7,6 +7,7 @@ import { createStore } from 'store';
 import { Switch, Route } from 'react-router';
 import { TweetPanel } from 'components/TweetPanel';
 import { TweetDetails } from 'containers/TweetDetailsCTR';
+import { TweetsAPIList } from 'components/TweetsAPIList';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -14,10 +15,11 @@ const store = createStore(history);
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-       <Switch>
-         <Route exact path={'/'} component={TweetPanel}/>
-         <Route exact path={'/details'} component={TweetDetails}/>
-       </Switch>
+      <TweetsAPIList />
+      <Switch>
+        <Route exact path={'/'} component={TweetPanel}/>
+        <Route exact path={'/details'} component={TweetDetails}/>
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
