@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:update]
+  before_action :set_tweet, only: [:update, :destroy]
 
   def index
     tweets = Tweet.order(created_at: :desc)
@@ -26,5 +26,10 @@ class TweetsController < ApplicationController
     else
       render json: {}
     end
+  end
+
+  def destroy
+    @post.destroy
+    render json: { tweet: @tweet }
   end
 end
