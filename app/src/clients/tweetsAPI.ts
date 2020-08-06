@@ -29,3 +29,9 @@ export const updateTweet = (tweet: TweetState) => fetch(`${baseURL}/tweets/${twe
   },
   body: JSON.stringify(tweet),
 });
+
+export const deleteTweet = (id: number) => fetch(`${baseURL}/tweets/${id}`, {
+  method: "DELETE",
+  mode: 'cors',
+  credentials: 'include',
+});
