@@ -29,7 +29,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    render json: { tweet: @tweet }
+    @tweet.destroy
+    render json: {}
   end
 end
