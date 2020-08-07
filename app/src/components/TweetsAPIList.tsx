@@ -2,6 +2,7 @@ import * as React from 'react';
 import { UpdateTweetsAPI } from 'api/UpdateTweetsAPI';
 import { SendTweetAPI } from 'api/SendTweetAPI';
 import { UpdateTweetAPI } from 'api/UpdateTweetAPI';
+import { DeleteTweetAPI } from 'api/DeleteTweetAPI';
 
 export const TweetsAPIList: React.FC<{}> = () => {
   return (
@@ -9,6 +10,7 @@ export const TweetsAPIList: React.FC<{}> = () => {
       <UpdateTweetsAPI />
       <SendTweetAPI />
       <UpdateTweetAPI />
+      <DeleteTweetAPI />
     </div>
   );
 };

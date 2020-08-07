@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 import { deleteTweet } from 'clients/tweetsAPI';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
+import { push } from 'connected-react-router';
 
 export const DeleteTweetAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
@@ -17,7 +18,7 @@ export const DeleteTweetAPI: React.FC<{}> = () => {
 
     deleteTweet(deletedTweetId)
       .then(() => {
-        dispatch(tweetsAPIActions.updateTweets());
+        dispatch(push('/'));
       })
       .then(() => {
         dispatch(tweetsAPIActions.deleteTweetDone());

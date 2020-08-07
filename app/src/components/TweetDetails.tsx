@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { TweetState } from 'reducers/entitiesReducer';
 import { TweetUpdateButton } from 'containers/TweetUpdateButtonCTR';
+import { TweetDeleteButton } from 'containers/TweetDeleteButtonCTR';
 
 type IProps = {
   tweet: TweetState
@@ -46,9 +46,7 @@ export const TweetDetails: React.FC<IProps> = (props: IProps) => {
          </IconButton>
          <div style={{marginLeft: 'auto'}}>
            <TweetUpdateButton />
-           <IconButton aria-label="delete" color="secondary">
-             <DeleteIcon />
-           </IconButton>
+           <TweetDeleteButton />
          </div>
        </CardActions>
     </Card>
