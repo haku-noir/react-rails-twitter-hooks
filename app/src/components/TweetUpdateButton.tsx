@@ -6,7 +6,7 @@ import { TextFormDialogParams, TextFormDialog } from './TextFormDialog';
 
 type IProps = {
   tweet: TweetState,
-  update: (updated: TweetState) => void,
+  update: (updatedContent: string) => void,
 };
 
 export const TweetUpdateButton: React.FC<IProps> = (props: IProps) => {
@@ -27,14 +27,7 @@ export const TweetUpdateButton: React.FC<IProps> = (props: IProps) => {
   const _props = {
     open,
     setOpen,
-    handleClick: (updatedContent: string) => {
-      const updatedTweet: TweetState = {
-        id: tweet.id,
-        content: updatedContent
-      };
-
-      update(updatedTweet);
-    },
+    handleClick: update,
     params,
   }
 

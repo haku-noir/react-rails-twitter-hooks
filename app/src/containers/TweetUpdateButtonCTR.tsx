@@ -21,7 +21,12 @@ export const TweetUpdateButton: React.FC<IProps> = (props: IProps) => {
 
   const _props = {
     tweet,
-    update: (updatedTweet: TweetState) => {
+    update: (updatedContent: string) => {
+      const updatedTweet: TweetState = {
+        id: tweet.id,
+        content: updatedContent
+      };
+
       dispatch(tweetsAPIActions.updateTweet(updatedTweet));
     }
   }
