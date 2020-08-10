@@ -26,6 +26,10 @@ export const entitiesReducer = reducerWithInitialState(initialState)
   .case(entitiesActions.updateTweets, (state: EntitiesState, payload: EntitiesState["tweets"]): EntitiesState => ({
     ...state,
     tweets: payload,
+  }))
+  .case(entitiesActions.updateUsers, (state: EntitiesState, payload: EntitiesState["users"]): EntitiesState => ({
+    ...state,
+    users: payload,
   }));
 
 export const findTweetById = (tweets: TweetState[], id: number): TweetState => (

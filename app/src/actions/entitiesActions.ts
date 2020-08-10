@@ -5,4 +5,5 @@ const actionCreator = actionCreatorFactory();
 
 export const entitiesActions = {
   updateTweets: actionCreator<EntitiesState["tweets"]>('UPDATE_TWEETS'),
+  updateUsers: actionCreator<EntitiesState["users"]>('UPDATE_USERS'),
 };
