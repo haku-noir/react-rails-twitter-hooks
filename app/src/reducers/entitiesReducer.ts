@@ -6,12 +6,20 @@ export type TweetState = {
   content: string
 };
 
+export type UserState = {
+  id: number,
+  name: string,
+  password: string
+};
+
 export type EntitiesState = {
-  tweets: TweetState[]
+  tweets: TweetState[],
+  users: UserState[]
 };
 
 const initialState: EntitiesState = {
   tweets: [],
+  users: []
 };
 
 export const entitiesReducer = reducerWithInitialState(initialState)
