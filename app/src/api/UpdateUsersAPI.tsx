@@ -3,7 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 
-export const UsersAPI: React.FC<{}> = () => {
+export const UpdateUsersAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const data = useSelector<RootState, RootState>(
