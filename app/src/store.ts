@@ -7,12 +7,14 @@ import logger from 'redux-logger';
 import { EntitiesState, entitiesReducer } from 'reducers/entitiesReducer';
 import { TweetsAPIState, tweetsAPIReducer } from 'reducers/tweetsAPIReducer';
 import { TweetsState, tweetsReducer } from 'reducers/tweetsReducer';
+import { UsersAPIState, usersAPIReducer } from 'reducers/usersAPIReducer';
 
 export type RootState = {
   router: RouterState,
   entities: EntitiesState,
   tweets: TweetsState,
-  tweetsAPI: TweetsAPIState
+  tweetsAPI: TweetsAPIState,
+  usersAPI: UsersAPIState
 };
 
 export const createStore = (history: History) => {
@@ -20,7 +22,8 @@ export const createStore = (history: History) => {
     router: connectRouter(history),
     entities: entitiesReducer,
     tweets: tweetsReducer,
-    tweetsAPI: tweetsAPIReducer
+    tweetsAPI: tweetsAPIReducer,
+    usersAPI: usersAPIReducer
   });
 
   return reduxCreateStore(
