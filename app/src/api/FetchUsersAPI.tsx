@@ -6,15 +6,15 @@ import { fetchUsers } from 'clients/usersAPI';
 import { entitiesActions } from 'actions/entitiesActions';
 import { usersAPIActions } from 'actions/usersAPIActions';
 
-export const UpdateUsersAPI: React.FC<{}> = () => {
+export const FetchUsersAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const updating = useSelector<RootState, boolean>(
-    state => state.usersAPI.updating
+  const fetching = useSelector<RootState, boolean>(
+    state => state.usersAPI.fetching
   );
 
   React.useEffect(() => {
-    if(!updating) return;
+    if(!fetching) return;
 
     fetchUsers()
       .then(res => res.json())
@@ -28,7 +28,7 @@ export const UpdateUsersAPI: React.FC<{}> = () => {
       .catch(() => {
         dispatch(usersAPIActions.updateUsersDone());
       });
-  }, [updating]);
+  }, [fetching]);
 
   return null;
 };

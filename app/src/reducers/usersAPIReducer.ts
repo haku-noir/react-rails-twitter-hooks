@@ -2,19 +2,19 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { usersAPIActions } from 'actions/usersAPIActions';
 
 export type UsersAPIState = {
-  updating: boolean,
+  fetching: boolean,
 };
 
 const initialState: UsersAPIState = {
-  updating: true,
+  fetching: true,
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
   .case(usersAPIActions.updateUsers, (state: UsersAPIState) => ({
     ...state,
-    updating: true,
+    fetching: true,
   }))
   .case(usersAPIActions.updateUsersDone, (state: UsersAPIState) => ({
     ...state,
-    updating: false,
+    fetching: false,
   }))
