@@ -18,7 +18,7 @@ export const UpdateTweetAPI: React.FC<{}> = () => {
 
     updateTweet(updatedTweet)
       .then(() => {
-        dispatch(tweetsAPIActions.updateTweets());
+        dispatch(tweetsAPIActions.fetchTweets());
       })
       .then(() => {
         dispatch(tweetsAPIActions.updateTweetDone());

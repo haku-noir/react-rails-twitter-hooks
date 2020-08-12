@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UpdateTweetsAPI } from 'api/UpdateTweetsAPI';
+import { FetchTweetsAPI } from 'api/FetchTweetsAPI';
 import { SendTweetAPI } from 'api/SendTweetAPI';
 import { UpdateTweetAPI } from 'api/UpdateTweetAPI';
 import { DeleteTweetAPI } from 'api/DeleteTweetAPI';
@@ -7,7 +7,7 @@ import { DeleteTweetAPI } from 'api/DeleteTweetAPI';
 export const TweetsAPIList: React.FC<{}> = () => {
   return (
     <div>
-      <UpdateTweetsAPI />
+      <FetchTweetsAPI />
       <SendTweetAPI />
       <UpdateTweetAPI />
       <DeleteTweetAPI />

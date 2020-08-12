@@ -17,7 +17,7 @@ export const SendTweetAPI: React.FC<{}> = () => {
 
     sendTweet(newContent)
       .then(() => {
-        dispatch(tweetsAPIActions.updateTweets());
+        dispatch(tweetsAPIActions.fetchTweets());
       })
       .then(() => {
         dispatch(tweetsAPIActions.sendTweetDone());

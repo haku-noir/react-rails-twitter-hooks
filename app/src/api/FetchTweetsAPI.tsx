@@ -6,15 +6,15 @@ import { fetchTweets } from 'clients/tweetsAPI';
 import { entitiesActions } from 'actions/entitiesActions';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 
-export const UpdateTweetsAPI: React.FC<{}> = () => {
+export const FetchTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const updating = useSelector<RootState, boolean>(
-    state => state.tweetsAPI.updating
+  const fetching = useSelector<RootState, boolean>(
+    state => state.tweetsAPI.fetching
   );
 
   React.useEffect(() => {
-    if(!updating) return;
+    if(!fetching) return;
 
     fetchTweets()
       .then(res => res.json())
@@ -23,12 +23,12 @@ export const UpdateTweetsAPI: React.FC<{}> = () => {
         dispatch(entitiesActions.updateTweets(res.tweets));
       })
       .then(() => {
-        dispatch(tweetsAPIActions.updateTweetsDone());
+        dispatch(tweetsAPIActions.fetchTweetsDone());
       })
       .catch(() => {
-        dispatch(tweetsAPIActions.updateTweetsDone());
+        dispatch(tweetsAPIActions.fetchTweetsDone());
       });
-  }, [updating]);
+  }, [fetching]);
 
   return null;
 };

@@ -3,27 +3,27 @@ import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 import { TweetState } from './entitiesReducer';
 
 export type TweetsAPIState = {
-  updating: boolean,
+  fetching: boolean,
   newContent: string,
   updatedTweet: TweetState,
   deletedTweetId: number,
 };
 
 const initialState: TweetsAPIState = {
-  updating: true,
+  fetching: true,
   newContent: '',
   updatedTweet: {id: 0, content: ''},
   deletedTweetId: 0,
 };
 
 export const tweetsAPIReducer = reducerWithInitialState(initialState)
-  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState) => ({
+  .case(tweetsAPIActions.fetchTweets, (state: TweetsAPIState) => ({
     ...state,
-    updating: true,
+    fetching: true,
   }))
-  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState) => ({
+  .case(tweetsAPIActions.fetchTweetsDone, (state: TweetsAPIState) => ({
     ...state,
-    updating: false,
+    fetching: false,
   }))
   .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: string) => ({
     ...state,
