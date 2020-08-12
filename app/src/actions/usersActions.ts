@@ -1,7 +1,8 @@
 import actionCreatorFactory from 'typescript-fsa';
+import { UsersState } from 'reducers/usersReducer';
 
 const actionCreator = actionCreatorFactory();
 
 export const usersActions = {
-  sampleAction: actionCreator<any>('SAMPLE'),
+  updateList: actionCreator<UsersState["list"]>('UPDATE_USERS_LIST'),
 };
