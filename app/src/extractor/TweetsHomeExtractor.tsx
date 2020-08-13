@@ -10,7 +10,7 @@ const extract = (tweets: EntitiesState["tweets"]): TweetsState["home"] => (
   tweets.map(tweet => tweet.id)
 );
 
-export const HomeTweetsExtractor: React.FC<{}> = () => {
+export const TweetsHomeExtractor: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const tweets = useSelector<RootState, EntitiesState["tweets"]>(
@@ -18,9 +18,9 @@ export const HomeTweetsExtractor: React.FC<{}> = () => {
   );
 
   React.useEffect(() => {
-    const homeTweets = extract(tweets);
+    const home = extract(tweets);
 
-    dispatch(tweetsActions.updateHome(homeTweets));
+    dispatch(tweetsActions.updateHome(home));
   }, [tweets]);
 
   return null;

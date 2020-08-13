@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TweetList } from 'containers/TweetListCTR';
-import { HomeTweetsExtractor } from 'extractor/HomeTweetsExtractor';
+import { TweetsHomeExtractor } from 'extractor/TweetsHomeExtractor';
 import { TweetSendButton } from 'containers/TweetSendButtonCTR';
 
 type IProps = {};
@@ -8,7 +8,7 @@ type IProps = {};
 export const TweetPanel: React.FC<IProps> = (props: IProps) => {
   return (
     <div>
-      <HomeTweetsExtractor />
+      <TweetsHomeExtractor />
       <TweetList />
       <TweetSendButton />
     </div>
