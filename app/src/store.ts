@@ -8,11 +8,13 @@ import { EntitiesState, entitiesReducer } from 'reducers/entitiesReducer';
 import { TweetsAPIState, tweetsAPIReducer } from 'reducers/tweetsAPIReducer';
 import { TweetsState, tweetsReducer } from 'reducers/tweetsReducer';
 import { UsersAPIState, usersAPIReducer } from 'reducers/usersAPIReducer';
+import { UsersState, usersReducer } from 'reducers/usersReducer';
 
 export type RootState = {
   router: RouterState,
   entities: EntitiesState,
   tweets: TweetsState,
+  users: UsersState,
   tweetsAPI: TweetsAPIState,
   usersAPI: UsersAPIState
 };
@@ -22,6 +24,7 @@ export const createStore = (history: History) => {
     router: connectRouter(history),
     entities: entitiesReducer,
     tweets: tweetsReducer,
+    users: usersReducer,
     tweetsAPI: tweetsAPIReducer,
     usersAPI: usersAPIReducer
   });
