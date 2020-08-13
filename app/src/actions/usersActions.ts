@@ -4,5 +4,5 @@ import { UsersState } from 'reducers/usersReducer';
 const actionCreator = actionCreatorFactory();
 
 export const usersActions = {
-  updateList: actionCreator<UsersState["list"]>('UPDATE_USERS_LIST'),
+  updateIndex: actionCreator<UsersState["index"]>('UPDATE_USERS_INDEX'),
 };

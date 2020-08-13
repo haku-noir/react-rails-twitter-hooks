@@ -2,15 +2,15 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { usersActions } from 'actions/usersActions';
 
 export type UsersState = {
-  list: number[]
+  index: number[]
 };
 
 const initialState: UsersState = {
-  list: []
+  index: []
 };
 
 export const usersReducer = reducerWithInitialState(initialState)
-  .case(usersActions.updateList, (state: UsersState, payload: number[]): UsersState => ({
+  .case(usersActions.updateIndex, (state: UsersState, payload: number[]): UsersState => ({
     ...state,
-    list: payload,
+    index: payload,
   }))
