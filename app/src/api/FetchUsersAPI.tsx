@@ -23,10 +23,10 @@ export const FetchUsersAPI: React.FC<{}> = () => {
         dispatch(entitiesActions.updateUsers(res.users));
       })
       .then(() => {
-        dispatch(usersAPIActions.updateUsersDone());
+        dispatch(usersAPIActions.fetchUsers());
       })
       .catch(() => {
-        dispatch(usersAPIActions.updateUsersDone());
+        dispatch(usersAPIActions.fetchUsersDone());
       });
   }, [fetching]);
 

@@ -13,11 +13,11 @@ const initialState: UsersAPIState = {
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
-  .case(usersAPIActions.updateUsers, (state: UsersAPIState) => ({
+  .case(usersAPIActions.fetchUsers, (state: UsersAPIState) => ({
     ...state,
     fetching: true,
   }))
-  .case(usersAPIActions.updateUsersDone, (state: UsersAPIState) => ({
+  .case(usersAPIActions.fetchUsersDone, (state: UsersAPIState) => ({
     ...state,
     fetching: false,
   }))
