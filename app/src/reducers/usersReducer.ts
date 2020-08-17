@@ -1,12 +1,19 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { usersActions } from 'actions/usersActions';
+import { UserState } from './entitiesReducer';
 
 export type UsersState = {
-  index: number[]
+  index: number[],
+  login: UserState
 };
 
 const initialState: UsersState = {
-  index: []
+  index: [],
+  login: {
+    id: 0,
+    name: '',
+    password: ''
+  }
 };
 
 export const usersReducer = reducerWithInitialState(initialState)
