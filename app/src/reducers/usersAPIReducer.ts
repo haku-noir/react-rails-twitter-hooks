@@ -21,3 +21,11 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
     ...state,
     fetching: false,
   }))
+  .case(usersAPIActions.loginUser, (state: UsersAPIState) => ({
+    ...state,
+    loggingin: true,
+  }))
+  .case(usersAPIActions.loginUserDone, (state: UsersAPIState) => ({
+    ...state,
+    loggingin: false,
+  }))
