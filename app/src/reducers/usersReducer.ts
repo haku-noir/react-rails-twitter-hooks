@@ -21,3 +21,7 @@ export const usersReducer = reducerWithInitialState(initialState)
     ...state,
     index: payload,
   }))
+  .case(usersActions.updateLogin, (state: UsersState, payload: UserState): UsersState => ({
+    ...state,
+    login: payload,
+  }))
