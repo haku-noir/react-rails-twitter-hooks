@@ -4,12 +4,16 @@ import { UserState } from 'reducers/entitiesReducer';
 
 export type UsersAPIState = {
   fetching: boolean,
-  loggingin: boolean
+  loggedinUser: UserState
 };
 
 const initialState: UsersAPIState = {
   fetching: true,
-  loggingin: false
+  loggedinUser: {
+    id: 0,
+    name: '',
+    password: ''
+  }
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
@@ -21,11 +25,15 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
     ...state,
     fetching: false,
   }))
-  .case(usersAPIActions.loginUser, (state: UsersAPIState) => ({
+  .case(usersAPIActions.loginUser, (state: UsersAPIState, payload: UserState) => ({
     ...state,
-    loggingin: true,
+    loggedinUser: payload,
   }))
   .case(usersAPIActions.loginUserDone, (state: UsersAPIState) => ({
     ...state,
-    loggingin: false,
+    loggedinUser: {
+      id: 0,
+      name: '',
+      password: ''
+    },
   }))
