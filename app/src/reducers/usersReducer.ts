@@ -4,16 +4,12 @@ import { UserState } from './entitiesReducer';
 
 export type UsersState = {
   index: number[],
-  login: UserState
+  login: number
 };
 
 const initialState: UsersState = {
   index: [],
-  login: {
-    id: 0,
-    name: '',
-    password: ''
-  }
+  login: 0
 };
 
 export const usersReducer = reducerWithInitialState(initialState)
@@ -21,7 +17,7 @@ export const usersReducer = reducerWithInitialState(initialState)
     ...state,
     index: payload,
   }))
-  .case(usersActions.updateLogin, (state: UsersState, payload: UserState): UsersState => ({
+  .case(usersActions.updateLogin, (state: UsersState, payload: number): UsersState => ({
     ...state,
     login: payload,
   }))
