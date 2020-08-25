@@ -7,7 +7,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-type IProps = {};
+type IProps = {
+  login: (name: string, password: string) => void;
+};
 
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({
@@ -22,19 +24,28 @@ createStyles({
 );
 
 export const UserLoginForm: React.FC<IProps> = (props: IProps) => {
+  const { login } = props;
+  const [name, updateName] = React.useState('');
+  const [password, updatePassword] = React.useState('');
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardHeader title="Login" />
       <CardContent>
-        <TextField className={classes.field} label="User" variant="outlined" />
+        <TextField
+          className={classes.field}
+          label="Name"
+          variant="outlined"
+          onChange={(event) => updateName(String(event.target.value))}
+        />
         <TextField
           className={classes.field}
           label="Password"
           type="password"
           autoComplete="current-password"
           variant="outlined"
+          onChange={(event) => updatePassword(String(event.target.value))}
         />
       </CardContent>
       <CardActions disableSpacing>
@@ -42,7 +53,7 @@ export const UserLoginForm: React.FC<IProps> = (props: IProps) => {
           Register
         </Button>
         <div style={{marginLeft: 'auto'}}>
-          <Button color="primary">
+          <Button color="primary" onClick={() => login(name, password)}>
             Login
           </Button>
         </div>
