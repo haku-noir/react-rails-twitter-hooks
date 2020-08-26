@@ -15,7 +15,7 @@ export const LoginUserAPI: React.FC<{}> = () => {
   );
 
   React.useEffect(() => {
-    if(!loggedinUser) return;
+    if(!loggedinUser.name || !loggedinUser.password) return;
 
     loginUser(loggedinUser)
       .then(res => res.json())
