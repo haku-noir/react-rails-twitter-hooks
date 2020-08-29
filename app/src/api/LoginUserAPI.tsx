@@ -21,7 +21,7 @@ export const LoginUserAPI: React.FC<{}> = () => {
       .then(res => res.json())
       .then(res => {
         if(!res.user) return;
-        dispatch(usersActions.updateLogin(res.user));
+        dispatch(usersActions.updateLogin(res.user.id));
       })
       .then(() => {
         dispatch(usersAPIActions.loginUserDone());
