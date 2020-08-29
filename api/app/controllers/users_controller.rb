@@ -15,4 +15,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    @user = User.find_by(name: params[:name], password: params[:password])
+
+    if @user
+      session[:user_id] = @user.id
+      render json: { user: @user }
+    else
+      render json: {}
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+  end
+
 end
