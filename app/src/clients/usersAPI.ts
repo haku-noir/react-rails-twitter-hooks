@@ -19,3 +19,9 @@ export const loginUser = (user: UserState) => fetch(`${baseURL}/login`, {
   body: JSON.stringify(user),
 });
 
+export const logoutUser = () => fetch(`${baseURL}/logout`, {
+  method: 'POST',
+  mode: 'cors',
+  credentials: 'include',
+});
+
