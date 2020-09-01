@@ -4,7 +4,8 @@ import { UserState } from 'reducers/entitiesReducer';
 
 export type UsersAPIState = {
   fetching: boolean,
-  loggedinUser: UserState
+  loggedinUser: UserState,
+  loggingout: boolean
 };
 
 const initialState: UsersAPIState = {
@@ -13,7 +14,8 @@ const initialState: UsersAPIState = {
     id: 0,
     name: '',
     password: ''
-  }
+  },
+  loggingout: false
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
@@ -36,4 +38,12 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
       name: '',
       password: ''
     },
+  }))
+  .case(usersAPIActions.logoutUser, (state: UsersAPIState) => ({
+    ...state,
+    loggingout: true,
+  }))
+  .case(usersAPIActions.logoutUserDone, (state: UsersAPIState) => ({
+    ...state,
+    loggingout: false,
   }))
