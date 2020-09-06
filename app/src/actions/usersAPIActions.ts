@@ -8,6 +8,6 @@ export const usersAPIActions = {
   fetchUsersDone: actionCreator<void>('API_FETCH_USERS_DONE'),
   loginUser: actionCreator<UserState>('API_LOGIN_USER'),
   loginUserDone: actionCreator<void>('API_LOGIN_USER_DONE'),
-  logoutUser: actionCreator<UserState>('API_LOGOUT_USER'),
+  logoutUser: actionCreator<void>('API_LOGOUT_USER'),
   logoutUserDone: actionCreator<void>('API_LOGOUT_USER_DONE'),
 };
