@@ -11,6 +11,7 @@ import { TweetsAPIList } from 'components/TweetsAPIList';
 import { UserList } from 'containers/UserListCTR';
 import { UserLoginForm } from 'containers/UserLoginFormCTR';
 import { LoginUserAPI } from 'api/LoginUserAPI';
+import { MenuAppBar } from 'components/MenuAppBar';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -20,6 +21,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <TweetsAPIList />
       <LoginUserAPI />
+      <MenuAppBar />
       <Switch>
         <Route exact path={'/'} component={TweetPanel}/>
         <Route exact path={'/details'} component={TweetDetails}/>
