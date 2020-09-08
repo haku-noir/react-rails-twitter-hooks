@@ -11,7 +11,7 @@ import { TweetsAPIList } from 'components/TweetsAPIList';
 import { UserList } from 'containers/UserListCTR';
 import { UserLoginForm } from 'containers/UserLoginFormCTR';
 import { LoginUserAPI } from 'api/LoginUserAPI';
-import { MenuAppBar } from 'components/MenuAppBar';
+import { MenuAppBar } from 'containers/MenuAppBarCTR';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);

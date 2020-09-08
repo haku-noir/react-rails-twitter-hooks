@@ -3,6 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { MenuAppBar as MenuAppBarComp } from 'components/MenuAppBar';
 import { RootState } from 'store';
+import { push } from 'connected-react-router';
 
 type IProps = {};
 
@@ -13,7 +14,9 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
     state => state
   );
 
-  const _props = {}
+  const _props = {
+    clickLogin: () => dispatch(push('/login'))
+  }
 
   return <MenuAppBarComp {..._props}/>;
 };
