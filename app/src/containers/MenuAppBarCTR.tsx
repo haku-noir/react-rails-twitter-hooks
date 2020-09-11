@@ -15,7 +15,8 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   );
 
   const _props = {
-    clickLogin: () => dispatch(push('/login'))
+    clickLogin: () => dispatch(push('/login')),
+    clickLogout: () => dispatch(push('/login'))
   }
 
   return <MenuAppBarComp {..._props}/>;

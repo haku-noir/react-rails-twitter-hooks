@@ -10,7 +10,8 @@ import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 
 type IProps = {
-  clickLogin: () => void
+  clickLogin: () => void,
+  clickLogout: () => void
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles();
-  const { clickLogin } = props;
+  const { clickLogin, clickLogout } = props;
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -81,7 +82,7 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={() => {setAuth(false); handleClose();}}>Logout</MenuItem>
+                <MenuItem onClick={() => {clickLogout(); setAuth(false); handleClose();}}>Logout</MenuItem>
               </Menu>
             </div>
           ) : (
