@@ -21,3 +21,7 @@ export const usersReducer = reducerWithInitialState(initialState)
     ...state,
     login: payload,
   }))
+  .case(usersActions.setLogout, (state: UsersState): UsersState => ({
+    ...state,
+    login: 0,
+  }))

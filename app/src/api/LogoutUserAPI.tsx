@@ -3,6 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 import { logoutUser } from 'clients/usersAPI';
+import { usersActions } from 'actions/usersActions';
 import { usersAPIActions } from 'actions/usersAPIActions';
 
 export const LogoutUserAPI: React.FC<{}> = () => {
@@ -17,7 +18,7 @@ export const LogoutUserAPI: React.FC<{}> = () => {
 
     logoutUser()
       .then(() => {
-        dispatch(usersAPIActions.logoutUser());
+        dispatch(usersActions.setLogout());
       })
       .then(() => {
         dispatch(usersAPIActions.logoutUserDone());
