@@ -6,6 +6,7 @@ import { loginUser } from 'clients/usersAPI';
 import { UserState } from 'reducers/entitiesReducer';
 import { usersAPIActions } from 'actions/usersAPIActions';
 import { usersActions } from 'actions/usersActions';
+import { push } from 'connected-react-router';
 
 export const LoginUserAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
@@ -20,11 +21,14 @@ export const LoginUserAPI: React.FC<{}> = () => {
     loginUser(loggedinUser)
       .then(res => res.json())
       .then(res => {
-        if(!res.user) return;
+        if(!res.user) throw new Error('Faild');
         dispatch(usersActions.updateLogin(res.user.id));
       })
       .then(() => {
         dispatch(usersAPIActions.loginUserDone());
+      })
+      .then(() => {
+        dispatch(push('/'));
       })
       .catch(() => {
         dispatch(usersAPIActions.loginUserDone());
