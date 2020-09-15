@@ -8,8 +8,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
+import { UserState } from 'reducers/entitiesReducer';
 
 type IProps = {
+  loggedinUser: UserState,
   clickLogin: () => void,
   clickLogout: () => void
 };
@@ -30,8 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles();
-  const { clickLogin, clickLogout } = props;
-  const [auth, setAuth] = React.useState(true);
+  const { loggedinUser, clickLogin, clickLogout } = props;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -50,7 +51,7 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
           <Typography variant="h6" className={classes.title}>
             TweetApp
           </Typography>
-          {auth ? (
+          {loggedinUser ? (
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -78,15 +79,15 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
               >
                 <MenuItem disabled color="default">
                   <Typography variant="h6" color="primary">
-                    <b>User</b>
+                    <b>{loggedinUser.name}</b>
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={() => {clickLogout(); setAuth(false); handleClose();}}>Logout</MenuItem>
+                <MenuItem onClick={() => {clickLogout(); handleClose();}}>Logout</MenuItem>
               </Menu>
             </div>
           ) : (
-            <Button color="inherit" onClick={() => {clickLogin(); setAuth(true);}}>Login</Button>
+            <Button color="inherit" onClick={() => clickLogin()}>Login</Button>
           )}
         </Toolbar>
       </AppBar>

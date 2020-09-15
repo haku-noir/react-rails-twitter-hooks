@@ -3,7 +3,6 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { User } from 'containers/UserCTR';
-import { FetchUsersAPI } from 'api/FetchUsersAPI';
 import { UsersIndexExtractor } from 'extractor/UsersIndexExtractor';
 
 type IProps = {
@@ -26,7 +25,6 @@ export const UserList: React.FC<IProps> = (props: IProps) => {
 
   return (
     <div>
-      <FetchUsersAPI />
       <UsersIndexExtractor />
       <List className={classes.root}>
         {userIds.map((userId) => (

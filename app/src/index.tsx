@@ -10,6 +10,7 @@ import { TweetDetails } from 'containers/TweetDetailsCTR';
 import { TweetsAPIList } from 'components/TweetsAPIList';
 import { UserList } from 'containers/UserListCTR';
 import { UserLoginForm } from 'containers/UserLoginFormCTR';
+import { FetchUsersAPI } from 'api/FetchUsersAPI';
 import { LoginUserAPI } from 'api/LoginUserAPI';
 import { MenuAppBar } from 'containers/MenuAppBarCTR';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <TweetsAPIList />
+      <FetchUsersAPI />
       <LoginUserAPI />
       <MenuAppBar />
       <Switch>
