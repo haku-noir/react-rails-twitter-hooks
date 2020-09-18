@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -12,6 +13,7 @@ import { UserState } from 'reducers/entitiesReducer';
 
 type IProps = {
   loggedinUser: UserState,
+  clickHome: () => void,
   clickLogin: () => void,
   clickLogout: () => void
 };
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles();
-  const { loggedinUser, clickLogin, clickLogout } = props;
+  const { loggedinUser, clickHome, clickLogin, clickLogout } = props;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -48,6 +50,12 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <IconButton
+            onClick={clickHome}
+            color="inherit"
+          >
+            <HomeIcon />
+          </IconButton>
           <Typography variant="h6" className={classes.title}>
             TweetApp
           </Typography>
