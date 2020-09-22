@@ -5,6 +5,19 @@ class UsersController < ApplicationController
     render json: { users: users }
   end
 
+  def create
+    @user = User.new(
+      name: params[:name],
+      password: params[:password],
+    )
+    if @user.save
+      session[:user_id] = @user.id
+      render json: { user: @user }
+    else
+      render json: {}
+    end
+  end
+
   def login
     @user = User.find_by(name: params[:name], password: params[:password])
 
