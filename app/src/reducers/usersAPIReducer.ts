@@ -5,7 +5,8 @@ import { UserState } from 'reducers/entitiesReducer';
 export type UsersAPIState = {
   fetching: boolean,
   loggedinUser: UserState,
-  loggingout: boolean
+  loggingout: boolean,
+  registeredUser: UserState
 };
 
 const initialState: UsersAPIState = {
@@ -15,7 +16,12 @@ const initialState: UsersAPIState = {
     name: '',
     password: ''
   },
-  loggingout: false
+  loggingout: false,
+  registeredUser: {
+    id: 0,
+    name: '',
+    password: ''
+  }
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
