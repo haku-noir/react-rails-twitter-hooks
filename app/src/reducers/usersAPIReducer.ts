@@ -53,3 +53,15 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
     ...state,
     loggingout: false,
   }))
+  .case(usersAPIActions.registerUser, (state: UsersAPIState, payload: UserState) => ({
+    ...state,
+    registeredUser: payload,
+  }))
+  .case(usersAPIActions.registerUserDone, (state: UsersAPIState) => ({
+    ...state,
+    registeredUser: {
+      id: 0,
+      name: '',
+      password: ''
+    },
+  }))

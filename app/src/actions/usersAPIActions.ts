@@ -10,4 +10,6 @@ export const usersAPIActions = {
   loginUserDone: actionCreator<void>('API_LOGIN_USER_DONE'),
   logoutUser: actionCreator<void>('API_LOGOUT_USER'),
   logoutUserDone: actionCreator<void>('API_LOGOUT_USER_DONE'),
+  registerUser: actionCreator<UserState>('API_REGISTER_USER'),
+  registerUserDone: actionCreator<void>('API_REGISTER_USER_DONE'),
 };
