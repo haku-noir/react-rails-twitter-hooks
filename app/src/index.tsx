@@ -13,6 +13,7 @@ import { UserLoginForm } from 'containers/UserLoginFormCTR';
 import { FetchUsersAPI } from 'api/FetchUsersAPI';
 import { LoginUserAPI } from 'api/LoginUserAPI';
 import { MenuAppBar } from 'containers/MenuAppBarCTR';
+import { UserRegisterForm } from 'containers/UserRegisterFormCTR';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path={'/details'} component={TweetDetails}/>
         <Route exact path={'/users'} component={UserList}/>
         <Route exact path={'/login'} component={UserLoginForm}/>
+        <Route exact path={'/register'} component={UserRegisterForm}/>
       </Switch>
     </ConnectedRouter>
   </Provider>,
