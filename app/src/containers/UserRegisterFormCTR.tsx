@@ -3,6 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { UserRegisterForm as UserRegisterFormComp } from 'components/UserRegisterForm';
 import { RootState } from 'store';
+import { usersAPIActions } from 'actions/usersAPIActions';
 
 type IProps = {};
 
@@ -13,7 +14,10 @@ export const UserRegisterForm: React.FC<IProps> = (props: IProps) => {
     state => state
   );
 
-  const _props = {}
+  const _props = {
+    register: (name: string, password: string) => {
+      dispatch(usersAPIActions.registerUser({id: 0, name, password}));
+    }}
 
   return <UserRegisterFormComp {..._props}/>;
 };
