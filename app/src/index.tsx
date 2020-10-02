@@ -12,6 +12,7 @@ import { UserList } from 'containers/UserListCTR';
 import { UserLoginForm } from 'containers/UserLoginFormCTR';
 import { FetchUsersAPI } from 'api/FetchUsersAPI';
 import { LoginUserAPI } from 'api/LoginUserAPI';
+import { LogoutUserAPI } from 'api/LogoutUserAPI';
 import { MenuAppBar } from 'containers/MenuAppBarCTR';
 import { UserRegisterForm } from 'containers/UserRegisterFormCTR';
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <TweetsAPIList />
       <FetchUsersAPI />
       <LoginUserAPI />
+      <LogoutUserAPI />
       <MenuAppBar />
       <Switch>
         <Route exact path={'/'} component={TweetPanel}/>
