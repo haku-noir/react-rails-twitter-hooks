@@ -8,7 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
 type IProps = {
-  login: (name: string, password: string) => void;
+  login: (name: string, password: string) => void,
+  moveRegister: () => void
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,7 +25,7 @@ createStyles({
 );
 
 export const UserLoginForm: React.FC<IProps> = (props: IProps) => {
-  const { login } = props;
+  const { login, moveRegister } = props;
   const [name, updateName] = React.useState('');
   const [password, updatePassword] = React.useState('');
   const classes = useStyles();
@@ -49,7 +50,7 @@ export const UserLoginForm: React.FC<IProps> = (props: IProps) => {
         />
       </CardContent>
       <CardActions disableSpacing>
-        <Button color="secondary">
+        <Button color="secondary" onClick={() => moveRegister()}>
           Register
         </Button>
         <div style={{marginLeft: 'auto'}}>
