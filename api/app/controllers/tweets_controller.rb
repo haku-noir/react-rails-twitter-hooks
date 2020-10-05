@@ -7,7 +7,10 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(content: params[:content])
+    @tweet = Tweet.new(
+      content: params[:content],
+      user_id: @current_user.id
+    )
 
     if @tweet.save
       render json: { tweet: @tweet }
