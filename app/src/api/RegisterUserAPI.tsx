@@ -18,11 +18,18 @@ export const RegisterUserAPI: React.FC<{}> = () => {
   React.useEffect(() => {
     if(!registeredUser.name || !registeredUser.password) return;
 
+    let user: UserState = {id: 0, name: "", password: ""};
     registerUser(registeredUser)
       .then(res => res.json())
       .then(res => {
         if(!res.user) throw new Error('Faild');
-        dispatch(usersActions.updateLogin(res.user.id));
+        user = res.user;
+      })
+      .then(() => {
+        dispatch(usersAPIActions.fetchUsers());
+      })
+      .then(() => {
+        dispatch(usersActions.updateLogin(user.id));
       })
       .then(() => {
         dispatch(usersAPIActions.registerUserDone());
