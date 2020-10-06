@@ -3,7 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 import { registerUser } from 'clients/usersAPI';
-import { UserState } from 'reducers/entitiesReducer';
+import { UserState, initialUser } from 'reducers/entitiesReducer';
 import { usersAPIActions } from 'actions/usersAPIActions';
 import { usersActions } from 'actions/usersActions';
 import { push } from 'connected-react-router';
@@ -18,7 +18,7 @@ export const RegisterUserAPI: React.FC<{}> = () => {
   React.useEffect(() => {
     if(!registeredUser.name || !registeredUser.password) return;
 
-    let user: UserState = {id: 0, name: "", password: ""};
+    let user: UserState = initialUser;
     registerUser(registeredUser)
       .then(res => res.json())
       .then(res => {

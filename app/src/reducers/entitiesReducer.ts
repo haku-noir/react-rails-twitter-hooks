@@ -19,6 +19,12 @@ export type UserState = {
   password: string
 };
 
+export const initialUser: UserState = {
+  id: 0,
+  name: "",
+  password: ""
+}
+
 export type EntitiesState = {
   tweets: TweetState[],
   users: UserState[]

@@ -1,6 +1,6 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { usersAPIActions } from 'actions/usersAPIActions';
-import { UserState } from 'reducers/entitiesReducer';
+import { UserState, initialUser } from 'reducers/entitiesReducer';
 
 export type UsersAPIState = {
   fetching: boolean,
@@ -11,17 +11,9 @@ export type UsersAPIState = {
 
 const initialState: UsersAPIState = {
   fetching: true,
-  loggedinUser: {
-    id: 0,
-    name: '',
-    password: ''
-  },
+  loggedinUser: initialUser,
   loggingout: false,
-  registeredUser: {
-    id: 0,
-    name: '',
-    password: ''
-  }
+  registeredUser: initialUser
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
@@ -39,11 +31,7 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
   }))
   .case(usersAPIActions.loginUserDone, (state: UsersAPIState) => ({
     ...state,
-    loggedinUser: {
-      id: 0,
-      name: '',
-      password: ''
-    },
+    loggedinUser: initialUser,
   }))
   .case(usersAPIActions.logoutUser, (state: UsersAPIState) => ({
     ...state,
@@ -59,9 +47,5 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
   }))
   .case(usersAPIActions.registerUserDone, (state: UsersAPIState) => ({
     ...state,
-    registeredUser: {
-      id: 0,
-      name: '',
-      password: ''
-    },
+    registeredUser: initialUser,
   }))
