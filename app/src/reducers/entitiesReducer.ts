@@ -7,6 +7,12 @@ export type TweetState = {
   user_id: number
 };
 
+export const initialTweet: TweetState = {
+  id: 0,
+  content: "",
+  user_id: 0
+}
+
 export type UserState = {
   id: number,
   name: string,

@@ -1,6 +1,6 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
-import { TweetState } from './entitiesReducer';
+import { TweetState, initialTweet } from './entitiesReducer';
 
 export type TweetsAPIState = {
   fetching: boolean,
@@ -12,7 +12,7 @@ export type TweetsAPIState = {
 const initialState: TweetsAPIState = {
   fetching: true,
   newContent: '',
-  updatedTweet: {id: 0, content: '', user_id: 0},
+  updatedTweet: initialTweet,
   deletedTweetId: 0,
 };
 
@@ -39,7 +39,7 @@ export const tweetsAPIReducer = reducerWithInitialState(initialState)
   }))
   .case(tweetsAPIActions.updateTweetDone, (state: TweetsAPIState) => ({
     ...state,
-    updatedTweet: {id: 0, content: '', user_id: 0},
+    updatedTweet: initialTweet,
   }))
   .case(tweetsAPIActions.deleteTweet, (state: TweetsAPIState, payload: number) => ({
     ...state,
