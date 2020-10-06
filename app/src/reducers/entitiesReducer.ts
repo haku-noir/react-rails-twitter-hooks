@@ -3,7 +3,8 @@ import { entitiesActions } from 'actions/entitiesActions';
 
 export type TweetState = {
   id: number,
-  content: string
+  content: string,
+  user_id: number
 };
 
 export type UserState = {

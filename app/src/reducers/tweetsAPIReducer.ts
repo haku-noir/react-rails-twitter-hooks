@@ -12,7 +12,7 @@ export type TweetsAPIState = {
 const initialState: TweetsAPIState = {
   fetching: true,
   newContent: '',
-  updatedTweet: {id: 0, content: ''},
+  updatedTweet: {id: 0, content: '', user_id: 0},
   deletedTweetId: 0,
 };
 
@@ -39,7 +39,7 @@ export const tweetsAPIReducer = reducerWithInitialState(initialState)
   }))
   .case(tweetsAPIActions.updateTweetDone, (state: TweetsAPIState) => ({
     ...state,
-    updatedTweet: {id: 0, content: ''},
+    updatedTweet: {id: 0, content: '', user_id: 0},
   }))
   .case(tweetsAPIActions.deleteTweet, (state: TweetsAPIState, payload: number) => ({
     ...state,

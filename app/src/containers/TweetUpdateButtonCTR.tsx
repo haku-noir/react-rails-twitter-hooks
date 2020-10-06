@@ -23,7 +23,7 @@ export const TweetUpdateButton: React.FC<IProps> = (props: IProps) => {
     tweet,
     update: (updatedContent: string) => {
       const updatedTweet: TweetState = {
-        id: tweet.id,
+        ...tweet,
         content: updatedContent
       };
 
