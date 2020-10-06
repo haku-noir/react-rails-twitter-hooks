@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TweetState } from 'reducers/entitiesReducer';
+import { TweetState, UserState } from 'reducers/entitiesReducer';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 type IProps = {
   tweet: TweetState,
+  user: UserState,
   click: () => void
 };
 
@@ -18,7 +19,7 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 export const Tweet: React.FC<IProps> = (props: IProps) => {
-  const { tweet, click } = props;
+  const { tweet, user, click } = props;
   const classes = useStyles();
 
   return (
@@ -29,7 +30,7 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
         )}
         title={(
           <Typography>
-            Anonymous
+            {user.name}
           </Typography>
         )}
         subheader={(

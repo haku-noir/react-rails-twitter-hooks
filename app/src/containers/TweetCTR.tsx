@@ -3,7 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { Tweet as TweetComp } from 'components/Tweet';
 import { RootState } from 'store';
-import { EntitiesState, findTweetById } from 'reducers/entitiesReducer';
+import { EntitiesState, findTweetById, findUserById } from 'reducers/entitiesReducer';
 import { tweetsActions } from 'actions/tweetsActions';
 import { push } from 'connected-react-router';
 
@@ -21,6 +21,11 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
   );
   const tweet = findTweetById(tweets, tweetId);
 
+  const users = useSelector<RootState, EntitiesState["users"]>(
+    state => state.entities.users
+  );
+  const user = findUserById(users, tweet.user_id);
+
   const showDetails = () => {
     dispatch(tweetsActions.updateDetails(tweetId));
     dispatch(push('/details'));
@@ -28,6 +33,7 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
 
   const _props = {
     tweet,
+    user,
     click: showDetails
   }
 
