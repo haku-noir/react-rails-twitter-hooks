@@ -3,7 +3,25 @@ class TweetsController < ApplicationController
 
   def index
     tweets = Tweet.order(created_at: :desc)
-    render json: { tweets: tweets }
+    @tweets = []
+
+    tweets.each do |tweet|
+      @tweets << set_tweet_hash(tweet)
+    end
+
+    render json: { tweets: @tweets }
+  end
+
+  def set_tweet
+    tweet = Tweet.find(params[:id])
+    @tweet = set_tweet_hash(tweet)
+  end
+
+  def set_tweet_hash(tweet)
+    tweet_hash = tweet.attributes
+    tweet_hash.store(:time, tweet.time)
+
+    return tweet_hash
   end
 
   def create
@@ -17,10 +35,6 @@ class TweetsController < ApplicationController
     else
       render json: {}
     end
-  end
-
-  def set_tweet
-    @tweet = Tweet.find(params[:id])
   end
 
   def update
