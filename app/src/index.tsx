@@ -10,12 +10,9 @@ import { TweetDetails } from 'containers/TweetDetailsCTR';
 import { TweetsAPIList } from 'components/TweetsAPIList';
 import { UserList } from 'containers/UserListCTR';
 import { UserLoginForm } from 'containers/UserLoginFormCTR';
-import { FetchUsersAPI } from 'api/FetchUsersAPI';
-import { LoginUserAPI } from 'api/LoginUserAPI';
-import { LogoutUserAPI } from 'api/LogoutUserAPI';
-import { RegisterUserAPI } from 'api/RegisterUserAPI';
 import { MenuAppBar } from 'containers/MenuAppBarCTR';
 import { UserRegisterForm } from 'containers/UserRegisterFormCTR';
+import { UsersAPIList } from 'components/UsersAPIList';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -23,11 +20,8 @@ const store = createStore(history);
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
+      <UsersAPIList />
       <TweetsAPIList />
-      <FetchUsersAPI />
-      <LoginUserAPI />
-      <LogoutUserAPI />
-      <RegisterUserAPI />
       <MenuAppBar />
       <Switch>
         <Route exact path={'/'} component={TweetPanel}/>
