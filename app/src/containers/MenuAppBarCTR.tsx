@@ -23,6 +23,7 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const _props = {
     loggedinUser,
     clickHome: () => dispatch(push('/')),
+    clickUsers: () => dispatch(push('/users')),
     clickLogin: () => dispatch(push('/login')),
     clickLogout: () => {
       dispatch(usersAPIActions.logoutUser());

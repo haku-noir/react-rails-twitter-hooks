@@ -14,6 +14,7 @@ import { UserState } from 'reducers/entitiesReducer';
 type IProps = {
   loggedinUser: UserState,
   clickHome: () => void,
+  clickUsers: () => void,
   clickLogin: () => void,
   clickLogout: () => void
 };
@@ -34,7 +35,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles();
-  const { loggedinUser, clickHome, clickLogin, clickLogout } = props;
+  const {
+    loggedinUser,
+    clickHome,
+    clickUsers,
+    clickLogin,
+    clickLogout
+  } = props;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -59,6 +66,7 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
           <Typography variant="h6" className={classes.title}>
             TweetApp
           </Typography>
+          <Button color="inherit" onClick={() => clickUsers()}>Users</Button>
           {loggedinUser ? (
             <div>
               <IconButton
