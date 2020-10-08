@@ -3,7 +3,7 @@ import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { TweetDetails as TweetDetailsComp } from 'components/TweetDetails';
 import { RootState } from 'store';
-import { EntitiesState, findTweetById } from 'reducers/entitiesReducer';
+import { EntitiesState, findTweetById, findUserById } from 'reducers/entitiesReducer';
 
 type IProps = {};
 
@@ -18,8 +18,14 @@ export const TweetDetails: React.FC<IProps> = (props: IProps) => {
   );
   const tweet = findTweetById(tweets, tweetId);
 
+  const users = useSelector<RootState, EntitiesState["users"]>(
+    state => state.entities.users
+  );
+  const user = findUserById(users, tweet.user_id);
+
   const _props = {
-    tweet
+    tweet,
+    user
   }
 
   return <TweetDetailsComp {..._props}/>;

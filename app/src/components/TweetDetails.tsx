@@ -8,12 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { TweetState } from 'reducers/entitiesReducer';
+import { TweetState, UserState } from 'reducers/entitiesReducer';
 import { TweetUpdateButton } from 'containers/TweetUpdateButtonCTR';
 import { TweetDeleteButton } from 'containers/TweetDeleteButtonCTR';
 
 type IProps = {
   tweet: TweetState
+  user: UserState
 };
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 export const TweetDetails: React.FC<IProps> = (props: IProps) => {
-  const { tweet } = props;
+  const { tweet, user } = props;
   const classes = useStyles();
 
   return (
@@ -32,8 +33,16 @@ export const TweetDetails: React.FC<IProps> = (props: IProps) => {
         avatar={
           <Avatar alt="Anonymous" src="" />
         }
-        title="User"
-        subheader="Date"
+        title={(
+          <Typography>
+            {user.name}
+          </Typography>
+        )}
+        subheader={(
+          <Typography>
+            {tweet.time}
+          </Typography>
+        )}
       />
       <CardContent>
         <Typography variant="body1" component="p">

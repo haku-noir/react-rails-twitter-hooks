@@ -4,7 +4,8 @@ import { entitiesActions } from 'actions/entitiesActions';
 export type TweetState = {
   id: number,
   content: string,
-  user_id: number
+  user_id: number,
+  time?: string
 };
 
 export const initialTweet: TweetState = {
