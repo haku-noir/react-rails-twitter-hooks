@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,11 +13,11 @@ import { TweetUpdateButton } from 'containers/TweetUpdateButtonCTR';
 import { TweetDeleteButton } from 'containers/TweetDeleteButtonCTR';
 
 type IProps = {
-  tweet: TweetState
+  tweet: TweetState,
   user: UserState
 };
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles(() => createStyles({
   root: {
     width: 500,
   },
