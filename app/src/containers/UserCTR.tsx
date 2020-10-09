@@ -14,10 +14,7 @@ export const User: React.FC<IProps> = (props: IProps) => {
 
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const users = useSelector<RootState, EntitiesState["users"]>(
-    state => state.entities.users
-  );
-  const user = findUserById(users, userId);
+  const user = findUserById(userId);
 
   const _props = {
     user

@@ -12,13 +12,10 @@ type IProps = {};
 export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const users = useSelector<RootState, EntitiesState["users"]>(
-    state => state.entities.users
-  );
   const login = useSelector<RootState, number>(
     state => state.users.login
   );
-  const loggedinUser = findUserById(users, login);
+  const loggedinUser = findUserById(login);
 
   const _props = {
     loggedinUser,

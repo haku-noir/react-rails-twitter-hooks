@@ -56,6 +56,10 @@ export const findTweetById = (id: number): TweetState => {
   return tweets.find((tweet) => tweet.id === id);
 }
 
-export const findUserById = (users: UserState[], id: number): UserState => (
-  users.find((user) => user.id === id)
-);
+export const findUserById = (id: number): UserState => {
+  const users = useSelector<RootState, EntitiesState["users"]>(
+    state => state.entities.users
+  );
+
+  return users.find((user) => user.id === id);
+};
