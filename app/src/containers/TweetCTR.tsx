@@ -16,10 +16,7 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
 
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const tweets = useSelector<RootState, EntitiesState["tweets"]>(
-    state => state.entities.tweets
-  );
-  const tweet = findTweetById(tweets, tweetId);
+  const tweet = findTweetById(tweetId);
 
   const users = useSelector<RootState, EntitiesState["users"]>(
     state => state.entities.users

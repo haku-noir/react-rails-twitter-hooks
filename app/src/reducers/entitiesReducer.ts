@@ -1,5 +1,7 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { entitiesActions } from 'actions/entitiesActions';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store';
 
 export type TweetState = {
   id: number,
@@ -46,9 +48,13 @@ export const entitiesReducer = reducerWithInitialState(initialState)
     users: payload,
   }));
 
-export const findTweetById = (tweets: TweetState[], id: number): TweetState => (
-  tweets.find((tweet) => tweet.id === id)
-);
+export const findTweetById = (id: number): TweetState => {
+  const tweets = useSelector<RootState, EntitiesState["tweets"]>(
+    state => state.entities.tweets
+  );
+
+  return tweets.find((tweet) => tweet.id === id);
+}
 
 export const findUserById = (users: UserState[], id: number): UserState => (
   users.find((user) => user.id === id)

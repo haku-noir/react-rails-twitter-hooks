@@ -13,10 +13,7 @@ export const TweetDetails: React.FC<IProps> = (props: IProps) => {
   const tweetId = useSelector<RootState, number>(
     state => state.tweets.details
   );
-  const tweets = useSelector<RootState, EntitiesState["tweets"]>(
-    state => state.entities.tweets
-  );
-  const tweet = findTweetById(tweets, tweetId);
+  const tweet = findTweetById(tweetId);
 
   const users = useSelector<RootState, EntitiesState["users"]>(
     state => state.entities.users
