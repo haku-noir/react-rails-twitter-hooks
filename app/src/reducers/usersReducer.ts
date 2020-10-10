@@ -4,12 +4,14 @@ import { UserState } from './entitiesReducer';
 
 export type UsersState = {
   index: number[],
-  login: number
+  login: number,
+  details: number
 };
 
 const initialState: UsersState = {
   index: [],
-  login: 0
+  login: 0,
+  details: 0
 };
 
 export const usersReducer = reducerWithInitialState(initialState)
