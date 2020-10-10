@@ -1,6 +1,5 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { usersActions } from 'actions/usersActions';
-import { UserState } from './entitiesReducer';
 
 export type UsersState = {
   index: number[],
@@ -26,4 +25,8 @@ export const usersReducer = reducerWithInitialState(initialState)
   .case(usersActions.setLogout, (state: UsersState): UsersState => ({
     ...state,
     login: 0,
+  }))
+  .case(usersActions.updateDetails, (state: UsersState, payload: number): UsersState => ({
+    ...state,
+    details: payload,
   }))
