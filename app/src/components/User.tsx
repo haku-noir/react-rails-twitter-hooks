@@ -7,7 +7,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 type IProps = {
-  user: UserState
+  user: UserState,
+  click: () => void
 };
 
 const useStyles = makeStyles(() => createStyles({
@@ -17,11 +18,11 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 export const User: React.FC<IProps> = (props: IProps) => {
-  const { user } = props;
+  const { user, click } = props;
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => click()}>
       <CardHeader
         avatar={(
           <Avatar alt="Anonymous" src="" />

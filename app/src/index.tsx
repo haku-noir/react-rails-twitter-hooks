@@ -13,6 +13,7 @@ import { UserLoginForm } from 'containers/UserLoginFormCTR';
 import { MenuAppBar } from 'containers/MenuAppBarCTR';
 import { UserRegisterForm } from 'containers/UserRegisterFormCTR';
 import { UsersAPIList } from 'components/UsersAPIList';
+import { UserDetails } from 'containers/UserDetailsCTR';
 
 const history :History = createBrowserHistory();
 const store = createStore(history);
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route exact path={'/'} component={TweetPanel}/>
         <Route exact path={'/details'} component={TweetDetails}/>
         <Route exact path={'/users'} component={UserList}/>
+        <Route exact path={'/users/details'} component={UserDetails}/>
         <Route exact path={'/login'} component={UserLoginForm}/>
         <Route exact path={'/register'} component={UserRegisterForm}/>
       </Switch>
