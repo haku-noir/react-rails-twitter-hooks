@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Dispatch, Action } from 'redux';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Tweet as TweetComp } from 'components/Tweet';
-import { RootState } from 'store';
-import { EntitiesState, findTweetById, findUserById } from 'reducers/entitiesReducer';
+import { findTweetById, findUserById } from 'reducers/entitiesReducer';
 import { tweetsActions } from 'actions/tweetsActions';
 import { push } from 'connected-react-router';
+import { usersActions } from 'actions/usersActions';
 
 type IProps = {
   tweetId: number
@@ -24,10 +24,16 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
     dispatch(push('/details'));
   };
 
+  const showUserDetails = () => {
+    dispatch(usersActions.updateDetails(user.id));
+    dispatch(push('/users/details'));
+  };
+
   const _props = {
     tweet,
     user,
-    click: showDetails
+    clickCard: showDetails,
+    clickUser: showUserDetails
   }
 
   return <TweetComp {..._props}/>;

@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 type IProps = {
   tweet: TweetState,
   user: UserState,
-  click: () => void
+  clickCard: () => void,
+  clickUser: () => void
 };
 
 const useStyles = makeStyles(() => createStyles({
@@ -19,17 +20,17 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 export const Tweet: React.FC<IProps> = (props: IProps) => {
-  const { tweet, user, click } = props;
+  const { tweet, user, clickCard, clickUser } = props;
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} onClick={() => click()}>
+    <Card className={classes.root} onClick={() => clickCard()}>
       <CardHeader
         avatar={(
-          <Avatar alt="Anonymous" src="" />
+          <Avatar alt="Anonymous" src="" onClick={() => clickUser()} />
         )}
         title={(
-          <Typography>
+          <Typography component="a" onClick={() => clickUser()}>
             {user.name}
           </Typography>
         )}
