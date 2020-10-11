@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "users/:id/tweets" => "users#tweets"
   get "session" => "users#session_user"
   post "logout" => "users#logout"
   post "login" => "users#login"

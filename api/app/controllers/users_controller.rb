@@ -41,4 +41,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def tweets
+    @user = User.find(params[:id].to_i)
+    if !@user
+      render json: { tweet_ids: [] }
+    end
+
+    @tweet_ids = @user.tweets
+    if @tweet_ids
+      render json: { tweet_ids: @tweet_ids }
+    else
+      render json: { tweet_ids: [] }
+    end
+  end
 end
