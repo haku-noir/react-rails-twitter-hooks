@@ -23,14 +23,19 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
   const { tweet, user, clickCard, clickUser } = props;
   const classes = useStyles();
 
+  const handleClickUser = (event: React.MouseEvent) => {
+    clickUser();
+    event.stopPropagation();
+  }
+
   return (
     <Card className={classes.root} onClick={() => clickCard()}>
       <CardHeader
         avatar={(
-          <Avatar alt="Anonymous" src="" onClick={() => clickUser()} />
+          <Avatar alt="Anonymous" src="" onClick={handleClickUser} />
         )}
         title={(
-          <Typography component="a" onClick={() => clickUser()}>
+          <Typography component="a" onClick={handleClickUser}>
             {user.name}
           </Typography>
         )}
