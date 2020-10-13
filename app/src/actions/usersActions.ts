@@ -7,5 +7,5 @@ export const usersActions = {
   updateIndex: actionCreator<UsersState["index"]>('UPDATE_USERS_INDEX'),
   updateLogin: actionCreator<UsersState["login"]>('UPDATE_USERS_LOGIN'),
   setLogout: actionCreator<void>('SET_USERS_LOGOUT'),
-  updateDetails: actionCreator<UsersState["login"]>('UPDATE_USERS_DETAILS'),
+  updateDetails: actionCreator<UsersState["details"]>('UPDATE_USERS_DETAILS'),
 };

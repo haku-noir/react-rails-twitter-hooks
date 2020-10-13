@@ -32,7 +32,7 @@ export const usersReducer = reducerWithInitialState(initialState)
     ...state,
     login: 0,
   }))
-  .case(usersActions.updateDetails, (state: UsersState, payload: number): UsersState => ({
+  .case(usersActions.updateDetails, (state: UsersState, payload: UsersState["details"]): UsersState => ({
     ...state,
     details: payload,
   }))
