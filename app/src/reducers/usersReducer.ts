@@ -4,13 +4,19 @@ import { usersActions } from 'actions/usersActions';
 export type UsersState = {
   index: number[],
   login: number,
-  details: number
+  details: {
+    id: number,
+    tweetIds: number[]
+  }
 };
 
 const initialState: UsersState = {
   index: [],
   login: 0,
-  details: 0
+  details: {
+    id: 0,
+    tweetIds: []
+  }
 };
 
 export const usersReducer = reducerWithInitialState(initialState)
