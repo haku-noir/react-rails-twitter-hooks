@@ -36,7 +36,7 @@ export const registerUser = (user: UserState) => fetch(`${baseURL}/users`, {
   body: JSON.stringify(user),
 });
 
-export const fetchUserTweets = (userId: number) => fetch(`${baseURL}/users/${userId}/users`, {
+export const fetchUserTweets = (userId: number) => fetch(`${baseURL}/users/${userId}/tweets`, {
   method: 'GET',
   mode: 'cors',
   credentials: 'include',
