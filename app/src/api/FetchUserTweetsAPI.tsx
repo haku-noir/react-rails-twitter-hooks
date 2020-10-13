@@ -5,6 +5,7 @@ import { RootState } from 'store';
 import { fetchUserTweets } from 'clients/usersAPI';
 import { usersActions } from 'actions/usersActions';
 import { usersAPIActions } from 'actions/usersAPIActions';
+import { push } from 'connected-react-router';
 
 export const FetchUserTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
@@ -24,6 +25,9 @@ export const FetchUserTweetsAPI: React.FC<{}> = () => {
           id: userTweets,
           tweetIds: res.tweet_ids
         }));
+      })
+      .then(() => {
+        dispatch(push('/users/details'));
       })
       .then(() => {
         dispatch(usersAPIActions.fetchUserTweetsDone());

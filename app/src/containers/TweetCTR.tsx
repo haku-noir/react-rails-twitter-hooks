@@ -5,7 +5,7 @@ import { Tweet as TweetComp } from 'components/Tweet';
 import { findTweetById, findUserById } from 'reducers/entitiesReducer';
 import { tweetsActions } from 'actions/tweetsActions';
 import { push } from 'connected-react-router';
-import { usersActions } from 'actions/usersActions';
+import { usersAPIActions } from 'actions/usersAPIActions';
 
 type IProps = {
   tweetId: number
@@ -25,8 +25,7 @@ export const Tweet: React.FC<IProps> = (props: IProps) => {
   };
 
   const showUserDetails = () => {
-    dispatch(usersActions.updateDetails(user.id));
-    dispatch(push('/users/details'));
+    dispatch(usersAPIActions.fetchUserTweets(user.id));
   };
 
   const _props = {

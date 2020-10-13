@@ -11,7 +11,7 @@ export const UserDetails: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const userId = useSelector<RootState, number>(
-    state => state.users.details
+    state => state.users.details.id
   );
   const user = findUserById(userId);
 
