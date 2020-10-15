@@ -10,19 +10,19 @@ import { push } from 'connected-react-router';
 export const FetchUserTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const userTweets = useSelector<RootState, number>(
-    state => state.usersAPI.userTweets
+  const userTweetIds = useSelector<RootState, number>(
+    state => state.usersAPI.userTweetIds
   );
 
   React.useEffect(() => {
-    if(!userTweets) return;
+    if(!userTweetIds) return;
 
-    fetchUserTweets(userTweets)
+    fetchUserTweets(userTweetIds)
       .then(res => res.json())
       .then(res => {
         if(!res.tweet_ids) return;
         dispatch(usersActions.updateDetails({
-          id: userTweets,
+          id: userTweetIds,
           tweetIds: res.tweet_ids
         }));
       })
@@ -35,7 +35,7 @@ export const FetchUserTweetsAPI: React.FC<{}> = () => {
       .catch(() => {
         dispatch(usersAPIActions.fetchUserTweetsDone());
       });
-  }, [userTweets]);
+  }, [userTweetIds]);
 
   return null;
 };
