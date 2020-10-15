@@ -41,3 +41,9 @@ export const fetchUserTweets = (userId: number) => fetch(`${baseURL}/users/${use
   mode: 'cors',
   credentials: 'include',
 });
+
+export const fetchLoginUser = () => fetch(`${baseURL}/session`, {
+  method: 'GET',
+  mode: 'cors',
+  credentials: 'include',
+});
