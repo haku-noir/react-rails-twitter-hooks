@@ -7,7 +7,8 @@ export type UsersAPIState = {
   loggedinUser: UserState,
   loggingout: boolean,
   registeredUser: UserState,
-  userTweetIds: number
+  userTweetIds: number,
+  fetchingLoginUser: boolean
 };
 
 const initialState: UsersAPIState = {
@@ -15,7 +16,8 @@ const initialState: UsersAPIState = {
   loggedinUser: initialUser,
   loggingout: false,
   registeredUser: initialUser,
-  userTweetIds: 0
+  userTweetIds: 0,
+  fetchingLoginUser: true
 };
 
 export const usersAPIReducer = reducerWithInitialState(initialState)
