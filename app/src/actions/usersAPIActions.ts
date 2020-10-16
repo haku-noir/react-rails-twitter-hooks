@@ -14,4 +14,6 @@ export const usersAPIActions = {
   registerUserDone: actionCreator<void>('API_REGISTER_USER_DONE'),
   fetchUserTweets: actionCreator<number>('API_FETCH_USER_TWEETS'),
   fetchUserTweetsDone: actionCreator<void>('API_FETCH_USER_TWEETS_DONE'),
+  fetchLoginUser: actionCreator<number>('API_FETCH_LOGIN_USER'),
+  fetchLoginUserDone: actionCreator<void>('API_FETCH_LOGIN_USER_DONE'),
 };

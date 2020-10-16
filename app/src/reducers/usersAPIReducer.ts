@@ -61,3 +61,11 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
     ...state,
     userTweetIds: 0,
   }))
+  .case(usersAPIActions.fetchLoginUser, (state: UsersAPIState) => ({
+    ...state,
+    fetchingLoginUser: true,
+  }))
+  .case(usersAPIActions.fetchLoginUserDone, (state: UsersAPIState) => ({
+    ...state,
+    fetchingLoginUser: false,
+  }))
