@@ -3,10 +3,13 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 import { UserState } from 'reducers/entitiesReducer';
+import { TweetList } from './TweetList';
 
 type IProps = {
-  user: UserState
+  user: UserState,
+  tweetIds: number[]
 };
 
 const useStyles = makeStyles(() => createStyles({
@@ -16,17 +19,21 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 export const UserDetails: React.FC<IProps> = (props: IProps) => {
-  const { user } = props;
+  const { user, tweetIds } = props;
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar alt="Anonymous" src="" />
-        }
-        title={user.name}
-      />
-    </Card>
+    <div>
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar alt="Anonymous" src="" />
+          }
+          title={user.name}
+        />
+      </Card>
+      <Divider />
+      <TweetList tweetIds={tweetIds} />
+    </div>
   );
 };

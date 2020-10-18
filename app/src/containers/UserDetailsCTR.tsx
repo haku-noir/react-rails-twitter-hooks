@@ -15,8 +15,13 @@ export const UserDetails: React.FC<IProps> = (props: IProps) => {
   );
   const user = findUserById(userId);
 
+  const tweetIds = useSelector<RootState, number[]>(
+    state => state.users.details.tweetIds
+  );
+
   const _props = {
-    user
+    user,
+    tweetIds
   }
 
   return <UserDetailsComp {..._props}/>;
