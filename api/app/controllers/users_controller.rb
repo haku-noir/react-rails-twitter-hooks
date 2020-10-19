@@ -1,18 +1,45 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:update]
 
   def index
     users = User.order(created_at: :desc)
     render json: { users: users }
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(
       name: params[:name],
       password: params[:password],
+      image_name: "default_user.jpg",
     )
     if @user.save
       session[:user_id] = @user.id
       render json: { user: @user }
+    else
+      render json: {}
+    end
+  end
+
+  def update
+    if params[:name]
+      @user.name = params[:name]
+    end
+    if params[:password]
+      @user.password = params[:password]
+    end
+
+    if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+
+    if @user.save
+      render json: { data: @user }
     else
       render json: {}
     end
