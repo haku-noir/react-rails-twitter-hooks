@@ -7,6 +7,7 @@ export type UsersAPIState = {
   loggedinUser: UserState,
   loggingout: boolean,
   registeredUser: UserState,
+  updatedUser: UserState,
   userTweetIds: number,
   fetchingLoginUser: boolean
 };
@@ -16,6 +17,7 @@ const initialState: UsersAPIState = {
   loggedinUser: initialUser,
   loggingout: false,
   registeredUser: initialUser,
+  updatedUser: initialUser,
   userTweetIds: 0,
   fetchingLoginUser: true
 };
