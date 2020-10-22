@@ -5,6 +5,7 @@ import { LogoutUserAPI } from 'api/LogoutUserAPI';
 import { RegisterUserAPI } from 'api/RegisterUserAPI';
 import { FetchUserTweetsAPI } from 'api/FetchUserTweetsAPI';
 import { FetchLoginUserAPI } from 'api/FetchLoginUserAPI';
+import { UpdateUserAPI } from 'api/UpdateUserAPI';
 
 type IProps = {};
 
@@ -17,6 +18,7 @@ export const UsersAPIList: React.FC<IProps> = (props: IProps) => {
     <RegisterUserAPI />
     <FetchUserTweetsAPI />
     <FetchLoginUserAPI />
+    <UpdateUserAPI />
   </div>
   );
 };
