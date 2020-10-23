@@ -9,7 +9,7 @@ import { usersAPIActions } from 'actions/usersAPIActions';
 export const UpdateUserAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const updatedUser = useSelector<RootState, UserState>(
+  const updatedUser = useSelector<RootState, UserState & {image: File}>(
     state => state.usersAPI.updatedUser
   );
 

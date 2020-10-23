@@ -8,7 +8,7 @@ export const fetchUsers = () => fetch(`${baseURL}/users`, {
   credentials: 'include',
 });
 
-export const updateUser = (user: UserState) => fetch(`${baseURL}/users/${user.id}`, {
+export const updateUser = (user: UserState & {image: File}) => fetch(`${baseURL}/users/${user.id}`, {
   method: 'PUT',
   mode: 'cors',
   credentials: 'include',

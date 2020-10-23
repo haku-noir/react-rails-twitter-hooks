@@ -7,7 +7,7 @@ export type UsersAPIState = {
   loggedinUser: UserState,
   loggingout: boolean,
   registeredUser: UserState,
-  updatedUser: UserState,
+  updatedUser: UserState & {image: File},
   userTweetIds: number,
   fetchingLoginUser: boolean
 };
@@ -17,7 +17,7 @@ const initialState: UsersAPIState = {
   loggedinUser: initialUser,
   loggingout: false,
   registeredUser: initialUser,
-  updatedUser: initialUser,
+  updatedUser: {...initialUser, image: null},
   userTweetIds: 0,
   fetchingLoginUser: true
 };
@@ -55,13 +55,13 @@ export const usersAPIReducer = reducerWithInitialState(initialState)
     ...state,
     registeredUser: initialUser,
   }))
-  .case(usersAPIActions.updateUser, (state: UsersAPIState, payload: UserState) => ({
+  .case(usersAPIActions.updateUser, (state: UsersAPIState, payload: UserState & {image: File}) => ({
     ...state,
     updatedUser: payload,
   }))
   .case(usersAPIActions.updateUserDone, (state: UsersAPIState) => ({
     ...state,
-    updatedUser: initialUser,
+    updatedUser: {...initialUser, image: null},
   }))
   .case(usersAPIActions.fetchUserTweets, (state: UsersAPIState, payload: number) => ({
     ...state,
