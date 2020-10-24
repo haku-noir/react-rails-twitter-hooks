@@ -9,7 +9,7 @@ import { UserState } from 'reducers/entitiesReducer';
 
 type IProps = {
   user: UserState,
-  open: boolean
+  open: boolean,
   handleClose: () => void,
   handleClick: (name: string, image: File) => void
 };
