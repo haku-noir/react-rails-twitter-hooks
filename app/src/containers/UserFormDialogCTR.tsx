@@ -34,7 +34,7 @@ export const UserFormDialog: React.FC<IProps> = (props: IProps) => {
   const _props = {
     user,
     open,
-    handleClose: () => {setOpen(false)},
+    handleClose: () => setOpen(false),
     handleClick: updateUser
   }
 
