@@ -25,7 +25,8 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
     clickLogout: () => {
       dispatch(usersAPIActions.logoutUser());
       dispatch(push('/login'));
-    }
+    },
+    clickProfile: () => dispatch(usersAPIActions.fetchUserTweets(login))
   }
 
   return <MenuAppBarComp {..._props}/>;

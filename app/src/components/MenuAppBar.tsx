@@ -16,7 +16,8 @@ type IProps = {
   clickHome: () => void,
   clickUsers: () => void,
   clickLogin: () => void,
-  clickLogout: () => void
+  clickLogout: () => void,
+  clickProfile: () => void
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -40,7 +41,8 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
     clickHome,
     clickUsers,
     clickLogin,
-    clickLogout
+    clickLogout,
+    clickProfile
   } = props;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -98,7 +100,7 @@ export const MenuAppBar: React.FC<IProps> = (props: IProps) => {
                     <b>{loggedinUser.name}</b>
                   </Typography>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={() => {clickProfile(); handleClose();}}>Profile</MenuItem>
                 <MenuItem onClick={() => {clickLogout(); handleClose();}}>Logout</MenuItem>
               </Menu>
             </div>
